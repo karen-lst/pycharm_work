@@ -248,3 +248,11 @@
 #
 # print('ASCII:',ord(c))
 # print('字符',chr(a))
+
+# def person(name,age,**kw):
+#     print('name:',name,'age:','other:',kw)
+#
+#
+# person('asd',43)
+# person('asd',43,city='beijing')
+# person('asd',43,city='beijing',job='engineer')
