@@ -19,6 +19,32 @@ im = Image.open('0.jpg')
 def rndChar():
     return chr(random.randint(65, 90))
 
-# 随机颜色1，产生随机的
+# 随机颜色1，产生（64,255）之间随机的三个数字，并返回
 def rndColor():
     return (random.randint(64,255),random.randint(64,255),random.randint(64,255))
+
+
+def rndcolor2():
+    return (random.randint(32,127),random.randint(32,127),random.randint(32,127))
+
+
+width = 60*4
+height = 60
+
+# 创建图像对象 Image.new(mode,size,color)
+image = Image.new('RGB',(width,height),(255,255,255))
+# 创建 Font 对象
+font = ImageFont.truetype('Arial.ttf',36)
+# 创建 Draw 对象
+draw = ImageDraw.Draw(image)
+# 填充image的每一个像素
+for x in range(width):
+    for y in range(height):
+        draw.point((x,y), fill=rndColor())
+# 输出文字
+for i in range(4):
+    draw.text((60*i+10,10),rndChar(),font=font,fill=rndcolor2())
+# 对图像模糊处理
+image.filter(ImageFilter.BLUR)
+# 保存图像
+image.save('1.jpg','jpeg')
